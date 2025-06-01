@@ -13,15 +13,17 @@ function Footer() {
     function handleSubmit(e){
         e.preventDefault()
         setIsLoading(true)
+        alert("Thanks for Subscribing")
     }
 
     return (
+        <>
         <motion.section
         initial={{opacity:0, y:50}}
         whileInView={{opacity:1, y:0}}
         transition={{duration:0.6}}
         viewport={{once:true, amount:0.2}}
-        className="bg-[#1A1A1A] pt-[50px] px-[20px] flex flex-col gap-[40px]"
+        className="bg-[#1A1A1A] pt-[50px] px-[20px] flex flex-col gap-[40px] md:flex md:flex-row md:gap-[150px] md:py-[80px] md:px-[40px]"
         >
 
             <motion.div
@@ -29,7 +31,7 @@ function Footer() {
         whileInView={{opacity:1, y:0}}
         transition={{duration:0.6}}
         viewport={{once:true, amount:0.2}}
-            className="flex flex-col gap-[10px]">
+            className="flex flex-col gap-[10px] md:w-[40%]">
                 <Link to="/">
                     <div className="flex flex-row cursor-pointer justify-start items-start">
                         <img src={Logo} alt="logo" className="w-[50px] h-[50px] rounded-full" />
@@ -38,7 +40,7 @@ function Footer() {
                     </div>
                 </Link>
 
-                <p className="text-gray-400 text-[10px]">&copy; copyright 2025</p>
+                {/* <p className="text-gray-400 text-[10px]">&copy; copyright 2025</p> */}
 
                 <p className="text-gray-400 text-sm">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam architecto amet delectus deserunt aperiam alias quos expedita laboriosam veritatis qui provident, doloremque dolore facere repellat, quibusdam hic, quam voluptatum error.                    
                 </p>
@@ -74,9 +76,9 @@ function Footer() {
         whileInView={{opacity:1, y:0}}
         transition={{duration:0.6}}
         viewport={{once:true, amount:0.2}}
-            className="flex flex-col gap-[20px]">
+            className="flex flex-col gap-[20px] pb-[20px]">
                 <h1 className="text-white text-xl font-bold">SUBSCRIBE TO OUR MAIL</h1>
-                <form action="" method="post" className="flex flex-col gap-[5px]">
+                <form action="/" method="post" onSubmit={() => handleSubmit} className="flex flex-col gap-[5px]">
                     <input type="email" 
                     name="email" 
                     id="email" 
@@ -93,16 +95,20 @@ function Footer() {
                 </form>
             </motion.div>
 
-            <motion.div
+            
+
+        </motion.section>
+
+        <motion.div
              initial={{opacity:0, y:50}}
         whileInView={{opacity:1, y:0}}
         transition={{duration:0.6}}
         viewport={{once:true, amount:0.2}}
-            className="border-t-1 border-gray-800 flex flex-row justify-center items-center p-[20px]">
+            className="border-t-1 border-gray-800 flex flex-row justify-center items-center p-[20px] text-center bg-[#1A1A1A] py-[20px] md:block">
                 <p className="text-gray-400 text-xs">&copy; copyright 2025 Designed by Joshua</p>
             </motion.div>
 
-        </motion.section>
+            </>
     )
 }
 
